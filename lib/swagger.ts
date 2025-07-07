@@ -89,6 +89,46 @@ export const swaggerSpec = {
         },
       },
     },
+    "/reset": {
+      get: {
+        summary: "Сбросить данные к начальному состоянию",
+        description: "Сбрасывает данные о животных к начальному состоянию, удаляя все изменения",
+        responses: {
+          "200": {
+            description: "Данные успешно сброшены",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    message: {
+                      type: "string",
+                      example: "Pets data reset to initial state"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            description: "Ошибка при сбросе данных",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    error: {
+                      type: "string",
+                      example: "Failed to reset pets data"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/pets/{id}": {
       get: {
         summary: "Получить животное по ID",
@@ -213,10 +253,7 @@ export const swaggerSpec = {
             type: "string",
             description: "Интересный факт о животном",
           },
-          image: {
-            type: "string",
-            description: "Имя файла изображения",
-          },
+
           size: {
             type: "string",
             enum: ["Small", "Medium", "Large"],
@@ -227,7 +264,7 @@ export const swaggerSpec = {
             description: "Является ли животное пушистым",
           },
         },
-        required: ["id", "name", "funFact", "image", "size", "isFluffy"],
+        required: ["id", "name", "funFact", "size", "isFluffy"],
       },
       CreatePetRequest: {
         type: "object",
@@ -240,10 +277,7 @@ export const swaggerSpec = {
             type: "string",
             description: "Интересный факт о животном",
           },
-          image: {
-            type: "string",
-            description: "Имя файла изображения",
-          },
+
           size: {
             type: "string",
             enum: ["Small", "Medium", "Large"],
@@ -254,7 +288,7 @@ export const swaggerSpec = {
             description: "Является ли животное пушистым",
           },
         },
-        required: ["name", "funFact", "image", "size", "isFluffy"],
+        required: ["name", "funFact", "size", "isFluffy"],
       },
       UpdatePetRequest: {
         type: "object",
@@ -267,10 +301,7 @@ export const swaggerSpec = {
             type: "string",
             description: "Интересный факт о животном",
           },
-          image: {
-            type: "string",
-            description: "Имя файла изображения",
-          },
+
           size: {
             type: "string",
             enum: ["Small", "Medium", "Large"],

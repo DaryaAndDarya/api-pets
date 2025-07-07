@@ -2,7 +2,7 @@ export interface Pet {
   id: string
   name: string
   funFact: string
-  image: string
+
   size: "Small" | "Medium" | "Large"
   isFluffy: boolean
 }
@@ -15,13 +15,12 @@ export interface PetsData {
 }
 
 // Добавляем ID к каждому животному для удобства работы с API
-const initialPetsData: PetsData = {
+export const initialPetsData: PetsData = {
   pets: [
     {
       id: "1",
       name: "Luna",
       funFact: "Incredible sense of smell - 100,000x better than humans",
-      image: "https://disk.yandex.ru/i/rMTxHJeOI5xM5Q",
       size: "Medium",
       isFluffy: true,
     },
@@ -29,7 +28,6 @@ const initialPetsData: PetsData = {
       id: "2",
       name: "Whiskers",
       funFact: "Purring helps heal bones and reduce pain",
-      image: "https://disk.yandex.ru/i/cWhKTpRpWEOL-A",
       size: "Small",
       isFluffy: true,
     },
@@ -37,7 +35,6 @@ const initialPetsData: PetsData = {
       id: "3",
       name: "Cocoa",
       funFact: "Can jump 3 feet high and do 'binkies' when happy",
-      image: "https://disk.yandex.ru/i/KzB_vDNQ0F7RfA",
       size: "Small",
       isFluffy: true,
     },
@@ -45,7 +42,6 @@ const initialPetsData: PetsData = {
       id: "4",
       name: "Peanut",
       funFact: "Uses 10+ different sounds to communicate",
-      image: "https://disk.yandex.ru/i/BEO2w0u7UYrPnA",
       size: "Small",
       isFluffy: true,
     },
@@ -53,23 +49,20 @@ const initialPetsData: PetsData = {
       id: "5",
       name: "Chewy",
       funFact: "Cheek pouches stretch 3x their head size",
-      image: "https://disk.yandex.ru/i/RbJ0qJRCnReX1g",
       size: "Small",
       isFluffy: true,
     },
     {
       id: "6",
       name: "Sunny",
-      funFact: "Has 3,000 feathers with fluorescent pigments",
-      image: "https://disk.yandex.ru/i/IKLDDkcwA8AyTQ",
+      funFact: "Has 3,000 feathers with fluorescent pigments",  
       size: "Small",
       isFluffy: false,
     },
     {
       id: "7",
       name: "Bubbles",
-      funFact: "Memories last months and can live 40+ years",
-      image: "https://disk.yandex.ru/i/xEHp2N5R-wZ4Ag",
+      funFact: "Memories last months and can live 40+ years",   
       size: "Small",
       isFluffy: false,
     },
@@ -77,7 +70,6 @@ const initialPetsData: PetsData = {
       id: "8",
       name: "Spike",
       funFact: "Changes beard color to show emotions",
-      image: "https://disk.yandex.ru/i/AkDZnVTtR-t7Zw",
       size: "Medium",
       isFluffy: false,
     },
@@ -85,7 +77,6 @@ const initialPetsData: PetsData = {
       id: "9",
       name: "Ziggy",
       funFact: "Sleeps 14-18 hours and does 'war dances'",
-      image: "https://disk.yandex.ru/i/tosBAubQQoHTGA",
       size: "Small",
       isFluffy: true,
     },
@@ -93,7 +84,6 @@ const initialPetsData: PetsData = {
       id: "10",
       name: "Shelly",
       funFact: "Existed for 230 million years alongside dinosaurs",
-      image: "https://disk.yandex.ru/i/KUlSR6zyVFXQVw",
       size: "Medium",
       isFluffy: false,
     },
