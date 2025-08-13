@@ -7,31 +7,24 @@ export function middleware(request: NextRequest) {
   // Get the origin from request headers
   const origin = request.headers.get('origin')
   
-  // Only set CORS headers if we have a valid origin
+  // Set CORS headers based on request origin
   if (origin) {
-    // For production (Vercel deployment), allow requests from your frontend domain
-    if (process.env.NODE_ENV === 'production') {
-      if (origin === 'https://api-pets-project.vercel.app') {
-        response.headers.set('Access-Control-Allow-Origin', origin)
-      }
-    } else {
-      // For development, allow localhost ports
-      const allowedOrigins = [
-        'http://localhost:3000',
-        'http://localhost:3001',
-        'http://localhost:5173',
-        'http://localhost:5174'
-      ]
-      
-      if (allowedOrigins.includes(origin)) {
-        response.headers.set('Access-Control-Allow-Origin', origin)
-      }
+    // For production, allow requests from specific domains
+    const allowedOrigins = [
+      'https://api-pets-project.vercel.app',
+      'http://localhost:5173', // Add your frontend domain here
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'http://localhost:5174'
+    ]
+    
+    if (allowedOrigins.includes(origin)) {
+      response.headers.set('Access-Control-Allow-Origin', origin)
+      response.headers.set('Access-Control-Allow-Credentials', 'true')
+      response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+      response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
     }
   }
-  
-  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-  response.headers.set('Access-Control-Allow-Credentials', 'true')
-  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   
   return response
 }
